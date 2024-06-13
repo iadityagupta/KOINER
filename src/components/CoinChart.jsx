@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react'
 import axios from 'axios'
 import { Baseurl } from './Baseurl'
 import { useParams } from 'react-router-dom'
+import Footer from './footer'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -86,8 +87,10 @@ const CoinChart = ({currency}) => {
                <button onClick={()=>setDays(365)}>1 Year</button>
              </div>
       </div>
+    
       )
      }
+     <Footer/>
      </>
   )
 }

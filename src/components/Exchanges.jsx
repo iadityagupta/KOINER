@@ -3,8 +3,7 @@ import Header from './Header';
 import axios from 'axios';
 import { Baseurl } from './Baseurl';
 import Loader from './Loader';
-import coin from '../coin.png'; // Ensure these imports are used or remove them if unnecessary
-import eth from '../eth.png';
+import Footer from './footer';
 import './Exchanges.css';
 // import OurModel from './OurModel';
 
@@ -53,6 +52,7 @@ const Exchanges = () => {
           </div>
         ))}
       </div>
+      <Footer />
     </>
   );
 };

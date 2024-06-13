@@ -1,51 +1,212 @@
-.navbar{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: rgb(22, 20, 20);
-    padding-bottom: 10px;
-    position: fixed;
-    width: 100%;
-    top: 0%;
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700');
+
+/* Base Styles */
+body {
+  font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: radial-gradient(circle, #322538, #1f1f1f);
+  font-size: 13px;
 }
 
-.navbar ul{
-    display: flex;
-    list-style: none;
-
-}
-.navbar ul li a{
-    margin-left: 15rem;
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-
+#header {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.logo{
-    display: flex;
-    align-items: center;
+:root {
+  --menu-bg: #f8a500;
+  --menu-color: #000000;
+  --menu-font-size: 1.5rem; /* Adjusted for better menu size */
+  --menu-zindex: 1100;
+  --hamburger-color: #fff;
+  --hamburger-width: 40px; /* Adjusted for better appearance */
+  --hamburger-height: 40px; /* Adjusted for better appearance */
+  --hamburger-zindex: 1110;
 }
 
-@media only screen and (max-width: 600px) {
-    .logo h1{
-        font-size: 20px;
-    }  
-    .navbar{
-        display: flex;
-        justify-content: space-evenly;
-        margin: 0;
-        padding: 0;
-        height: 4rem;
-    }
-    .navbar ul li a{
-        margin-left: 10px;
-        /* padding: 0; */
-        font-size: 18px;
-    }
-    
-    .K{
-        color: orange;
-    }
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem; /* Adjusted for larger logo */
+  margin-left: 4rem;
+  
+}
 
-} 
+.logo-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color */
+  }
+  
+  .logo-link:hover {
+    text-decoration: none; /* Remove underline on hover */
+    color: inherit; /* Inherit color on hover */
+  }
+  
+
+#menu {
+  background: var(--menu-bg);
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  transition: all 0.7s ease-in-out;
+  visibility: hidden;
+  width: 100%;
+  z-index: var(--menu-zindex);
+}
+
+#menu.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+#menu.open li {
+  animation-duration: 1.0s;
+  animation-fill-mode: both;
+  animation-name: fadeInUp;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+#menu ul:hover a {
+  opacity: 0.5;
+}
+
+#menu ul a {
+  -webkit-transform: translateZ(0);
+  transition: opacity 0.3s ease-in-out;
+}
+
+#menu ul a:hover {
+  opacity: 1;
+}
+
+.main-nav {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  color: var(--menu-color);
+  display: block;
+  font-size: var(--menu-font-size);
+  font-weight: bold;
+  padding: 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.menu-footer {
+  padding: 2rem;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+.menu-footer ul {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-footer ul li {
+  display: inline;
+  margin: 0 1rem;
+}
+
+.menu-footer a {
+  color: var(--menu-color);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* Hamburger menu toggler styles */
+.toggle-menu {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  height: var(--hamburger-height);
+  outline: none;
+  padding: 0;
+  pointer-events: initial;
+  position: relative;
+  vertical-align: middle;
+  width: var(--hamburger-width);
+  z-index: var(--hamburger-zindex);
+}
+
+.toggle-menu span {
+  background-color: var(--hamburger-color);
+  content: '';
+  display: block;
+  height: 2px;
+  left: calc(50% - 13px);
+  position: absolute;
+  top: calc(50% - 1px);
+  transform-origin: 50% 50%;
+  transition: background-color 0.2s ease-in-out, top 0.2s 0.2s ease-out, transform 0.2s linear;
+  width: 26px;
+}
+
+.toggle-menu span:before,
+.toggle-menu span:after {
+  background-color: var(--hamburger-color);
+  content: '';
+  display: block;
+  height: 2px;
+  position: absolute;
+  transform-origin: 50% 50%;
+  transition: background-color 0.2s ease-in-out, top 0.2s 0.2s ease-out, transform 0.2s linear;
+  width: 26px;
+}
+
+.toggle-menu span:before {
+  top: 7px;
+}
+
+.toggle-menu span:after {
+  top: -7px;
+}
+
+.toggle-menu.active span {
+  background-color: transparent;
+  transition: background 0.2s ease-out;
+}
+
+.toggle-menu.active span:before,
+.toggle-menu.active span:after {
+  transition: top 0.2s ease-out, transform 0.2s 0.2s ease-out;
+}
+
+.toggle-menu.active span:before {
+  top: 0;
+  transform: rotate3d(0, 0, 1, -45deg);
+}
+
+.toggle-menu.active span:after {
+  top: 0;
+  transform: rotate3d(0, 0, 1, 45deg);
+}

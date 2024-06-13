@@ -5,6 +5,7 @@ import Loader from './Loader'
 import axios from 'axios'
 import Header from './Header'
 import { Link } from 'react-router-dom'
+import Footer from './footer'
 import './res.css'
 const Coins = () => {
   const [loading, setLoading]=useState(true)
@@ -41,8 +42,8 @@ const Coins = () => {
             />
            </div>
            <div className='btns' >
-             <button onClick={()=>setCurrency('inr')} >inr</button>
-             <button onClick={()=>setCurrency('usd')}>usd</button>
+             <button onClick={()=>setCurrency('inr')} >INR</button>
+             <button onClick={()=>setCurrency('usd')}>USD</button>
            </div>
           { 
             coins.filter((data)=>{
@@ -59,6 +60,7 @@ const Coins = () => {
           }
         </> 
       }
+       <Footer />
     </>
   )
 }
@@ -86,4 +88,4 @@ const  CoinCard=({coindata, currencySymbol, i, id})=>{
   )
 }
 
-export default Coins
+export default Coins 
