@@ -1,30 +1,88 @@
 .footer {
-    background-color: #171717; /* Dark background color */
-    color: #fff; /* White text color */
-    padding: 10px 0;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
+  background-color: #171717; /* Dark background color */
+  color: #fff; /* White text color */
+  padding: 20px 0; /* Adjust padding as needed */
+  text-align: center;
+  width: 96%;
+  margin: 1rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12rem;
   
-  .footer p {
-    margin-bottom: 5px;
-    font-size: 14px; /* Smaller font size */
-  }
-  
-  .footer-links {
-    text-align: right; /* Align links to the right */
-    font-size: 14px; /* Smaller font size */
-    margin-right: 10px; /* Add some margin to the right for spacing */
-  }
-  
-  .footer-links a {
-    color: #fff; /* White text color for links */
-    text-decoration: none;
-  }
-  
-  .footer-links a:hover {
-    text-decoration: underline;
-  }
-  
+}
+
+.footer p {
+  margin-bottom: 10px;
+  font-size: 14px; /* Smaller font size */
+}
+
+.container {
+  width: 96%;
+  margin: 1rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12rem;
+}
+
+.footer-section {
+  flex: 1;
+}
+
+.footer-links a {
+  color: #fff; /* White text color for links */
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.faq-section {
+  text-align: center; /* Center FAQ section */
+}
+
+.faq-section h3 {
+  font-size: 16px; /* FAQ section heading font size */
+  margin-bottom: 10px;
+}
+
+.faq-list {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0;
+}
+
+.faq-list li {
+  margin-bottom: 8px; /* Adjust spacing between FAQ items */
+}
+
+.faq-question {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: left;
+  width: 100%;
+  padding: 5px 0;
+  outline: none;
+}
+
+.faq-answer {
+  background-color: #333;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px;
+  margin-top: 5px;
+  display: block;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer p {
+  margin: 0;
+}
+
+.faq-answer.show {
+  max-height: 1000px; /* Adjust based on your answer content */
+}
+

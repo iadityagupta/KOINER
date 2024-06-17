@@ -8,10 +8,11 @@ body {
 }
 
 #header {
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: rgb(37, 30, 20);
 }
 
 :root {
@@ -48,6 +49,7 @@ body {
   background: var(--menu-bg);
   height: 100%;
   left: 0;
+  right: 200rem;
   opacity: 0;
   overflow: hidden;
   position: fixed;
@@ -148,6 +150,7 @@ body {
   border: none;
   cursor: pointer;
   display: inline-block;
+  right: 4rem;
   height: var(--hamburger-height);
   outline: none;
   padding: 0;
@@ -162,13 +165,13 @@ body {
   background-color: var(--hamburger-color);
   content: '';
   display: block;
-  height: 2px;
+  height: 5px;
   left: calc(50% - 13px);
   position: absolute;
   top: calc(50% - 1px);
   transform-origin: 50% 50%;
   transition: background-color 0.2s ease-in-out, top 0.2s 0.2s ease-out, transform 0.2s linear;
-  width: 26px;
+  width: 36px;
 }
 
 .toggle-menu span:before,
@@ -176,19 +179,19 @@ body {
   background-color: var(--hamburger-color);
   content: '';
   display: block;
-  height: 2px;
+  height: 5px;
   position: absolute;
   transform-origin: 50% 50%;
   transition: background-color 0.2s ease-in-out, top 0.2s 0.2s ease-out, transform 0.2s linear;
-  width: 26px;
+  width: 36px;
 }
 
 .toggle-menu span:before {
-  top: 7px;
+  top: 10px;
 }
 
 .toggle-menu span:after {
-  top: -7px;
+  top: -10px;
 }
 
 .toggle-menu.active span {

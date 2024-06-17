@@ -16,7 +16,7 @@ function App() {
       <Route path='/News' element={<News/>}/>
       
     </Routes>
-    <Footer />
+   
     </div>
     
   );

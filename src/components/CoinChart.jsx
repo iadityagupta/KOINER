@@ -71,7 +71,7 @@ const CoinChart = ({currency}) => {
      {
       chartData.length === 0 ? ( <Loader/>) : (
 
-        <div>
+        <div className='main-content'>
         {/* <Line data={myData} />  */}
         <Line data={myData} options={{
           elements:{
@@ -90,6 +90,7 @@ const CoinChart = ({currency}) => {
     
       )
      }
+     
      <Footer/>
      </>
   )
