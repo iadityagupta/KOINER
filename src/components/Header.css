@@ -86,9 +86,10 @@ body {
 }
 
 #menu ul a {
-  -webkit-transform: translateZ(0);
+  transform: translateZ(0); /* Standard transform property */
   transition: opacity 0.3s ease-in-out;
 }
+
 
 #menu ul a:hover {
   opacity: 1;
