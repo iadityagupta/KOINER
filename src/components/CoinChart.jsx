@@ -90,8 +90,7 @@ const CoinChart = ({currency}) => {
     
       )
      }
-     
-     <Footer/>
+
      </>
   )
 }

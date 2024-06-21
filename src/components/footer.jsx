@@ -6,9 +6,9 @@ import './Footer.css';
 
 const Footer = () => {
   const faqs = [
-    { id: 1, question: 'How do I create an account?', answer: 'To create an account, click on the Sign Up button and follow the instructions.' },
-    { id: 2, question: 'What payment methods do you accept?', answer: 'We accept Visa, MasterCard, PayPal, and direct bank transfers.' },
-    { id: 3, question: 'How can I contact support?', answer: 'You can contact our support team via email at support@example.com or by phone at +123456789.' },
+    { id: 1, question: 'What does Koiner do?', answer: 'Koiner offers real-time updates on cryptocurrency prices, market analysis, and news with sentiment analysis.' },
+    { id: 2, question: 'How often is the cryptocurrency data updated?', answer: 'The data is updated in real-time every few minutes.' },
+    { id: 3, question: 'Where can I find news and their sentiment analysis?', answer: 'You can find the latest news and their sentiment analysis in our News section ' },
   ];
 
   const [activeFaq, setActiveFaq] = useState(null);
@@ -25,6 +25,10 @@ const Footer = () => {
   return (
     <footer className="footer">
       
+      
+      
+      <div className="line"></div>
+
 
 
 
@@ -71,15 +75,9 @@ const Footer = () => {
         </li>
       </ul>
 
-      <ul className="menu">
-        <li className="menu__item"><a className="menu__link" href="#">Home</a></li>
-        <li className="menu__item"><a className="menu__link" href="#">About</a></li>
-        <li className="menu__item"><a className="menu__link" href="#">Services</a></li>
-        <li className="menu__item"><a className="menu__link" href="#">Team</a></li>
-        <li className="menu__item"><a className="menu__link" href="#">Contact</a></li>
-      </ul>
+      
 
-      <p>&copy;2024 Aditya Gupta | All Rights Reserved</p>
+      <p>&copy;2024                        Aditya Gupta                 |                  All Rights Reserved</p>
     </footer>
   );
 };

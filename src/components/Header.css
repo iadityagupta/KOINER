@@ -3,7 +3,7 @@
 /* Base Styles */
 body {
   font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background: radial-gradient(circle, #000000, #000000);
+  background: black;
   font-size: 13px;
 }
 
@@ -31,25 +31,23 @@ body {
   align-items: center;
   font-size: 1.8rem; /* Adjusted for larger logo */
   margin-left: 7rem;
-  
 }
 
 .logo-link {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Inherit color */
-  }
-  
-  .logo-link:hover {
-    text-decoration: none; /* Remove underline on hover */
-    color: inherit; /* Inherit color on hover */
-  }
-  
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color */
+}
+
+.logo-link:hover {
+  text-decoration: none; /* Remove underline on hover */
+  color: inherit; /* Inherit color on hover */
+}
 
 #menu {
   background: var(--menu-bg);
   height: 100%;
   left: 0;
-  right: 200rem;
+  right: 250rem;
   opacity: 0;
   overflow: hidden;
   position: fixed;
@@ -150,7 +148,7 @@ body {
   border: none;
   cursor: pointer;
   display: inline-block;
-  right: 4rem;
+  right: 6rem;
   height: var(--hamburger-height);
   outline: none;
   padding: 0;
@@ -214,5 +212,19 @@ body {
   transform: rotate3d(0, 0, 1, 45deg);
 }
 
+/* Responsive Styles */
+@media (max-width: 768px) {
+  #header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
+  .logo {
+    margin-left: 0;
+    margin-bottom: 1rem;
+  }
 
+  .toggle-menu {
+    right: 0;
+  }
+}

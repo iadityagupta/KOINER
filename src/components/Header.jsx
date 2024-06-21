@@ -54,9 +54,15 @@ const Header = () => {
                 </a>
               </li>
               <li>
-                <a href="mailto:aditya453gupta@gmail.com">
+                <a href="https://github.com/iadityagupta/Koiner">
                   <i className="fa fa-envelope fa-fw"></i>
-                  Mail
+                  Github 
+                </a>
+              </li>
+              <li>
+                <a href="https://iadityagupta.github.io/PortfolioSite/">
+                  <i className="fa fa-envelope fa-fw"></i>
+                  Portfolio
                 </a>
               </li>
             </ul>

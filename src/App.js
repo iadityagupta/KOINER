@@ -4,7 +4,6 @@ import Exchanges from './components/Exchanges';
 import Coins from './components/Coins';
 import CoinDetails from './components/CoinDetail';
 import News from './components/News';
-import Footer from './components/footer';
 
 function App() {
   return (

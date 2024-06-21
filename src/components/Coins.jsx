@@ -71,6 +71,9 @@ const Coins = () => {
               />
             ))}
           </div>
+          <br></br>
+          <br></br>
+          <span></span>
           <Pagination
             coinsPerPage={coinsPerPage}
             totalCoins={coins.length}
