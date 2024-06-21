@@ -3,16 +3,16 @@
 /* Base Styles */
 body {
   font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background: radial-gradient(circle, #322538, #1f1f1f);
+  background: radial-gradient(circle, #000000, #000000);
   font-size: 13px;
 }
 
 #header {
-  padding: 1rem;
+  padding: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(37, 30, 20);
+  background-color: rgb(0, 0, 0);
 }
 
 :root {
@@ -29,8 +29,8 @@ body {
 .logo {
   display: flex;
   align-items: center;
-  font-size: 1.6rem; /* Adjusted for larger logo */
-  margin-left: 4rem;
+  font-size: 1.8rem; /* Adjusted for larger logo */
+  margin-left: 7rem;
   
 }
 
@@ -213,3 +213,6 @@ body {
   top: 0;
   transform: rotate3d(0, 0, 1, 45deg);
 }
+
+
+

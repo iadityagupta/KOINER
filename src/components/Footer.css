@@ -1,49 +1,80 @@
-.footer {
-  background-color: #171717; /* Dark background color */
-  color: #fff; /* White text color */
-  padding: 20px 0; /* Adjust padding as needed */
-  text-align: center;
-  width: 96%;
-  margin: 1rem auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 12rem;
-  
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.footer p {
-  margin-bottom: 10px;
-  font-size: 14px; /* Smaller font size */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #333;
+  font-family: "Poppins", sans-serif;
 }
 
-.container {
-  width: 96%;
-  margin: 1rem auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 12rem;
-}
-
-.footer-section {
+.content {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d41c1c;
+  font-size: 2rem;
+  padding: 10px;
 }
 
-.footer-links a {
-  color: #fff; /* White text color for links */
+.footer {
+  width: 100%;
+  background: #000000;
+  color: #fff;
+  padding: 10px 50px;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+}
+
+.social-icon,
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.social-icon__item,
+.menu__item {
+  margin: 0 10px;
+}
+
+.social-icon__link,
+.menu__link {
+  font-size: 1.2rem;
+  color: #fff;
   text-decoration: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.75;
+  font-weight: 300;
 }
 
-.footer-links a:hover {
-  text-decoration: underline;
+.social-icon__link:hover,
+.menu__link:hover {
+  opacity: 1;
+  transform: translateY(-5px);
 }
 
 .faq-section {
-  text-align: center; /* Center FAQ section */
+  max-width: 1600px; /* Set a max width for the FAQ section */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .faq-section h3 {
-  font-size: 16px; /* FAQ section heading font size */
-  margin-bottom: 10px;
+  font-size: 18px; /* FAQ section heading font size */
+  margin-bottom: 15px;
+  color: #fff; /* White text color */
 }
 
 .faq-list {
@@ -52,7 +83,7 @@
 }
 
 .faq-list li {
-  margin-bottom: 8px; /* Adjust spacing between FAQ items */
+  margin-bottom: 12px; /* Adjust spacing between FAQ items */
 }
 
 .faq-question {
@@ -60,19 +91,19 @@
   border: none;
   color: #fff;
   cursor: pointer;
-  font-size: 14px;
-  text-align: left;
+  font-size: 16px;
+  text-align: center;
   width: 100%;
-  padding: 5px 0;
+  padding: 8px 0;
   outline: none;
 }
 
 .faq-answer {
-  background-color: #333;
+  background-color: #000000;
   border-radius: 5px;
   color: #fff;
-  padding: 10px;
-  margin-top: 5px;
+  padding: 12px;
+  margin-top: 8px;
   display: block;
   overflow: hidden;
   transition: max-height 0.3s ease;
@@ -82,7 +113,13 @@
   margin: 0;
 }
 
-.faq-answer.show {
-  max-height: 1000px; /* Adjust based on your answer content */
-}
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
 
+  .faq-section {
+    max-width: 100%; /* Full width for smaller screens */
+    padding: 0 20px; /* Padding for smaller screens */
+  }
+}

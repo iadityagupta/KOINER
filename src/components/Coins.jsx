@@ -5,7 +5,7 @@ import Loader from './Loader';
 import Header from './Header';
 import Footer from './footer';
 import { Link } from 'react-router-dom';
-import './res.css';
+import './coins.css';
 
 const Coins = () => {
   const [loading, setLoading] = useState(true);
