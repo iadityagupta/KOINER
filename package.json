@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.20",
     "@react-three/drei": "^9.106.0",
     "@react-three/fiber": "^8.16.8",
     "@testing-library/jest-dom": "^5.17.0",
@@ -12,6 +15,7 @@
     "antd": "^5.18.0",
     "axios": "^1.7.2",
     "chartjs": "^0.3.24",
+    "chartjs-adapter-date-fns": "^3.0.0",
     "compromise": "^14.13.0",
     "compromised": "^1.0.0",
     "gsap": "^3.12.5",
@@ -25,6 +29,7 @@
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
     "sentiment": "^5.0.2",
+    "swiper": "^11.1.4",
     "three.js": "^0.77.1",
     "web-vitals": "^2.1.4"
   },

@@ -4,7 +4,7 @@ import Loader from './Loader';
 import Header from './Header';
 import { Baseurl } from './Baseurl'; // Ensure Baseurl points to your proxy endpoint (/api)
 import './news.css';
-import Footer from './footer';
+import Footer from './Footer';
 import Sentiment from 'sentiment'; // Import sentiment package
 
 const News = () => {

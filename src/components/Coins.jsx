@@ -3,17 +3,17 @@ import axios from 'axios';
 import { Baseurl } from './Baseurl';
 import Loader from './Loader';
 import Header from './Header';
-import Footer from './footer';
+import Footer from './Footer';
 import { Link } from 'react-router-dom';
-import './coins.css';
+import './Coins.css';
 
 const Coins = () => {
   const [loading, setLoading] = useState(true);
   const [coins, setCoins] = useState([]);
   const [currency, setCurrency] = useState('usd');
   const [search, setSearch] = useState('');
-  const [currentPage, setCurrentPage] = useState(1); // Track current page
-  const [coinsPerPage] = useState(15); // Number of coins per page
+  const [currentPage, setCurrentPage] = useState(1);
+  const [coinsPerPage] = useState(15);
   const currencySymbol = currency === 'inr' ? '₹' : '$';
 
   useEffect(() => {
@@ -31,14 +31,12 @@ const Coins = () => {
     getCoinsData();
   }, [currency]);
 
-  // Logic to paginate coins
   const indexOfLastCoin = currentPage * coinsPerPage;
   const indexOfFirstCoin = indexOfLastCoin - coinsPerPage;
   const currentCoins = coins
     .filter((data) => data.name.toLowerCase().includes(search.toLowerCase()))
     .slice(indexOfFirstCoin, indexOfLastCoin);
 
-  // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
@@ -48,38 +46,51 @@ const Coins = () => {
       ) : (
         <>
           <Header />
-          <div className="maincontent">
-          <div className="search-bar">
-            <input
-              type="text"
-              placeholder="Search Your Coins"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </div>
-          <div className="btns">
-            <button onClick={() => setCurrency('inr')}>INR</button>
-            <button onClick={() => setCurrency('usd')}>USD</button>
-          </div>
-          <div className="coin-list">
-            {currentCoins.map((coindata, i) => (
-              <CoinCard
-                key={i}
-                coindata={coindata}
-                id={coindata.id}
-                currencySymbol={currencySymbol}
+          <div className="mains-content">
+            <div className="headings-container">
+              <h1>Track Your Coins</h1>
+              <p>Stay updated with the latest prices and charts of your favorite cryptocurrencies.</p>
+            </div>
+            <div className="searchs-bar">
+              <input
+                type="text"
+                placeholder="Search Your Coins"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
               />
-            ))}
-          </div>
-          <br></br>
-          <br></br>
-          <span></span>
-          <Pagination
-            coinsPerPage={coinsPerPage}
-            totalCoins={coins.length}
-            paginate={paginate}
-            currentPage={currentPage}
-          />
+              <div className="btnss">
+                <button onClick={() => setCurrency('inr')}>INR</button>
+                <button onClick={() => setCurrency('usd')}>USD</button>
+              </div>
+            </div>
+            
+            <div className="tables-container">
+              <table className="coins-table">
+                <thead>
+                  <tr>
+                    <th>Icon</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>24h Change</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {currentCoins.map((coindata, i) => (
+                    <CoinRow
+                      key={i}
+                      coindata={coindata}
+                      currencySymbol={currencySymbol}
+                    />
+                  ))}
+                </tbody>
+              </table>
+              <Pagination
+                coinsPerPage={coinsPerPage}
+                totalCoins={coins.length}
+                paginate={paginate}
+                currentPage={currentPage}
+              />
+            </div>
           </div>
           <Footer />
         </>
@@ -88,24 +99,20 @@ const Coins = () => {
   );
 };
 
-const CoinCard = ({ coindata, currencySymbol, id }) => {
+const CoinRow = ({ coindata, currencySymbol }) => {
   const profit = coindata.price_change_percentage_24h > 0;
 
   return (
-    <Link to={`/coins/${id}`} style={{ color: 'white', textDecoration: 'none' }}>
-      <div className="ex-cards">
-        <div className="image">
-          <img height={'80px'} src={coindata.image} alt="" />
-        </div>
-        <div className="name">{coindata.name}</div>
-        <div className="price">
-          {currencySymbol} {coindata.current_price.toFixed(0)}
-        </div>
-        <div style={profit ? { color: 'green' } : { color: 'red' }} className="rank">
-          {profit ? '+' + coindata.price_change_percentage_24h.toFixed(2) : coindata.price_change_percentage_24h.toFixed(2)}
-        </div>
-      </div>
-    </Link>
+    <tr>
+      <td><img src={coindata.image} alt={coindata.name} height="40px" /></td>
+      <td>
+        <Link to={`/coins/${coindata.id}`}>{coindata.name}</Link>
+      </td>
+      <td>{currencySymbol} {coindata.current_price.toFixed(2)}</td>
+      <td style={{ color: profit ? 'green' : 'red' }}>
+        {profit ? '+' : ''}{coindata.price_change_percentage_24h.toFixed(2)}%
+      </td>
+    </tr>
   );
 };
 
