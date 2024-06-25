@@ -7,12 +7,12 @@
 }
 
 body {
-    background-color: #ffffff;
+    background-color: #000000;
     color: white;
 }
 
 /* General app styles */
-.app {
+.eapp {
     text-align: center;
     color: white;
     background: #000000;
@@ -20,7 +20,7 @@ body {
 }
 
 /* Main content section */
-.mai-content {
+.emain-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,29 +28,29 @@ body {
 }
 
 /* Text section styles */
-.tex-section {
+.etext-section {
     max-width: 800px;
 }
 
-.tex-section h1 {
+.etext-section h1 {
     font-size: 48px;
     margin-bottom: 20px;
 }
 
-.tex-section p {
+.etext-section p {
     font-size: 18px;
     line-height: 1.6;
     margin-bottom: 30px;
 }
 
 /* Buttons styles */
-.buttons {
+.ebuttons {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
-.track-button, .learn-button {
+.etrack-button, .elearn-button {
     padding: 15px 30px;
     font-size: 16px;
     border: none;
@@ -58,20 +58,20 @@ body {
     cursor: pointer;
 }
 
-.track-button {
+.etrack-button {
     background-color: #655dfe;
     color: white;
     margin-right: 20px;
 }
 
-.learn-button {
+.elearn-button {
     background-color: transparent;
     color: white;
     border: 1px solid white;
 }
 
 /* Image section styles */
-.image-section img {
+.eimage-section img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
@@ -80,13 +80,13 @@ body {
 }
 
 /* Features section styles */
-.features {
+.efeatures {
     display: flex;
     justify-content: space-around;
     padding: 50px;
 }
 
-.feature {
+.efeature {
     background: #24244b;
     padding: 20px;
     border-radius: 10px;
@@ -94,26 +94,26 @@ body {
     text-align: center;
 }
 
-.feature .icon {
+.efeature .icon {
     font-size: 2rem;
     margin-bottom: 10px;
 }
 
 /* Market overview section styles */
-.market-overview {
+.emarket-overview {
     display: flex;
     justify-content: space-around;
     align-items: flex-start; /* Adjust alignment */
     padding: 50px;
 }
 
-.overview-image {
+.eoverview-image {
     width: 50%; /* Set fixed width for the image container */
     min-width: 300px; /* Set minimum width to prevent contraction */
     text-align: center;
 }
 
-.overview-image img {
+.eoverview-image img {
     max-width: 60%;
     height: auto;
     border-radius: 20px;
@@ -121,11 +121,11 @@ body {
     vertical-align: top; /* Align images to the top */
 }
 
-.market-features {
+.emarket-features {
     width: 40%;
 }
 
-.market-feature {
+.emarket-feature {
     background: #24244b;
     padding: 20px;
     border-radius: 20px;
@@ -134,31 +134,31 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.market-feature.open {
+.emarket-feature.open {
     background-color: #655dfe; /* Change background color when feature is open */
 }
 
-.market-feature h2 {
+.emarket-feature h2 {
     font-size: 24px;
     margin-bottom: 10px;
 }
 
-.market-feature p {
+.emarket-feature p {
     font-size: 16px;
     line-height: 1.5;
 }
 
 /* Portfolio info styles */
-.portfolio-info h3 {
+.eportfolio-info h3 {
     margin: 0;
     color: #f39c12;
 }
 
-.coin-info {
+.ecoin-info {
     margin-top: 20px;
 }
 
-.coin {
+.ecoin {
     display: flex;
     justify-content: space-between;
     margin: 10px 0;
@@ -168,37 +168,37 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .main-content {
+    .emain-content {
         flex-direction: column;
         padding: 30px;
     }
 
-    .text-section {
+    .etext-section {
         text-align: center;
     }
 
-    .features {
+    .efeatures {
         flex-direction: column;
         padding: 30px;
     }
 
-    .feature {
+    .efeature {
         width: 100%;
         margin-bottom: 30px;
     }
 
-    .market-overview {
+    .emarket-overview {
         flex-direction: column;
         padding: 30px;
     }
 
-    .overview-image {
+    .eoverview-image {
         width: 70%;
         min-width: auto; /* Reset minimum width */
         text-align: center;
     }
 
-    .market-features {
+    .emarket-features {
         width: 100%;
     }
 }
