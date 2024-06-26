@@ -107,7 +107,7 @@
   .currency-button {
     padding: 10px 20px;
     background-color: #ca8326;
-    color: #fff;
+    color: #ffffff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -121,7 +121,8 @@
   .chart-container {
     flex: 1 1 50%; /* Adjusted proportions for row layout */
     max-width: 70%;
-    padding: 0 20px;
+    padding: 0 0px;
+    margin-top: -70px;
   }
   
   /* Main content container */
@@ -135,6 +136,41 @@
     width: 100%; /* Ensure full width */
   }
   
+  .ccbtn {
+    display: flex;
+    justify-content: flex-end; /* Aligns the buttons to the right */
+    padding: 10px; /* Adds padding around the container */
+    background-color: #000; /* Black background for the container */
+  }
+  
+  .ccbtn button {
+    background-color: #ff8e03; /* Orangish color */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px; /* Adjusts the gap between buttons */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
+  }
+  
+  .ccbtn button:hover {
+    background-color: #ff5d1c; /* Darker orange on hover */
+  }
+  
+  .ccbtn button:active {
+    background-color: #e05500; /* Even darker orange on active state */
+  }
+  
+  .ccbtn button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 142, 3, 0.5); /* Orange outline on focus */
+  }
+  
+  
+
   /* Responsive adjustments for smaller screens */
   @media only screen and (max-width: 600px) {
     .coin-detail {

@@ -75,7 +75,7 @@ const CoinDetails = () => {
                 </span>
               </div>
               <div className="coin-description">
-                <p>{coin.description && coin.description['en'] && coin.description['en'].split('.')[0]}</p>
+                <p>{coin.description && coin.description['en'] && coin.description['en'].split('.')[0]}.</p>
               </div>
               
             </div>

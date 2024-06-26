@@ -48,28 +48,40 @@ function Exchanges() {
                         <img src={cryptoImage} alt="Crypto Tracker" />
                     </div>
                 </main>
+                <div className='excont'>
+
+                <div className='eswipe'>Read the features below. <br></br>( Hover over it ! )<br></br></div><br></br>
 
                 <section className="efeatures" >
                     <div className="efeature">
                    
                     <div className="eicon">🪙</div>
-                    <h2>Your Comprehensive Crypto Portfolio Manager</h2><br></br>
+                    <h2>Your Crypto Portfolio Tracker</h2><br></br>
                     <p> Visualize coin trends through an intuitive portfolio graph, customizable in BTC, ETH, or any fiat or cryptocurrency.</p>
                 </div>
                                     <div className="efeature">
                     <div className="eicon">🔗</div>
-                    <h2>Comprehensive Market Analysis</h2>
+                    <h2> Market Analysis</h2>
                     <br></br>
                     <p>Get detailed insights into market trends and cryptocurrency performance. Stay updated with real-time data and charts to make informed investment decisions.</p>
                 </div>
 
                 <div className="efeature">
                     <div className="eicon">🔔</div>
-                    <h2>News and Sentiment Analysis</h2><br></br>
+                    <h2>Latest News and its Analysis </h2><br></br>
                     <p>Stay ahead with top crypto news and sentiment analysis. Understand how news impacts prices with our curated articles and sentiment indicators (positive, negative, neutral).</p>
                 </div>
 
                 </section>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br><br></br>
+                <br></br>
+                
+
+                </div>
 <br></br>
 <br></br>
                 <section className="emarket-overview">

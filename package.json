@@ -16,6 +16,7 @@
     "axios": "^1.7.2",
     "chartjs": "^0.3.24",
     "chartjs-adapter-date-fns": "^3.0.0",
+    "chartjs-plugin-zoom": "^2.0.1",
     "compromise": "^14.13.0",
     "compromised": "^1.0.0",
     "gsap": "^3.12.5",
