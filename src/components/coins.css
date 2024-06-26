@@ -66,7 +66,7 @@ body {
 .tables-container {
   width: 80%;
   margin: 20px auto;
-  background-color: #3e0063;
+  background-image: linear-gradient(to right, #330029,#390147);
   padding: 20px;
   border-radius: 15px;
   box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
@@ -138,19 +138,29 @@ body {
 /* Heading container styles */
 .headings-container {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 10px;
 }
 
 .headings-container h1 {
-  font-size: 2rem;
-  color: #333;
+  font-size: 4rem;
+  background-image: linear-gradient(to right, #d014ff, #eb960d);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
+
 
 .headings-container p {
   font-size: 1.2rem;
-  color: #777;
+  text-align: center;
+  background-image: linear-gradient(to right, #ffbe0d, #ff58e3);
+  -webkit-text-fill-color: transparent;
+  
+  -webkit-background-clip: text;
+  background-clip: text;
 }
+
 
 /* Responsive adjustments */
 @media only screen and (max-width: 600px) {

@@ -31,11 +31,17 @@ function Exchanges() {
             <div className="eapp">
                 <main className="emain-content">
                     <div className="etext-section">
-                        <h1>The best crypto portfolio tracker for Bitcoin & altcoins</h1>
-                        <p>Delta is the ultimate Crypto tracker. Keep track of all your coins, including Bitcoin, Ethereum, Litecoin, and over 10,000 altcoins. Use our free app to keep an overview of your portfolio across wallets and exchanges, and get the latest prices and market charts in your local currency. Then add some alerts to ensure you don’t miss out on the next big cycle.</p>
+                    <h1 className='upper'>
+                         <span className='highlight'>Empower Your Crypto Journey</span> with the Ultimate Portfolio Tracker
+                    </h1>
+
+                    <p>Welcome to Koinly, the leading crypto tracker designed to keep you ahead in the fast-paced world of cryptocurrency. Monitor real-time prices and 24-hour changes of Bitcoin, Ethereum, Litecoin, and over 10,000 altcoins effortlessly. Our comprehensive charts and detailed market analysis provide a clear overview of your portfolio, whether across wallets or exchanges, in your preferred currency.</p>
+                   
+
                         <div className="ebuttons">
-                            <button className="etrack-button" onClick={handleTrackButtonClick}>Track my Coins</button>
-                            <button className="elearn-button">Learn more</button>
+                            <button className="etrack-button" onClick={handleTrackButtonClick}>Track the Koins</button>
+                            <button className="elearn-button" onclick="href='https://www.investopedia.com/terms/c/cryptocurrency.asp'">Learn more</button>
+
                         </div>
                     </div>
                     <div className="eimage-section">
@@ -43,24 +49,29 @@ function Exchanges() {
                     </div>
                 </main>
 
-                <section className="efeatures">
+                <section className="efeatures" >
                     <div className="efeature">
-                        <div className="eicon">🪙</div>
-                        <h2>Your crypto portfolio manager</h2>
-                        <p>A crypto tracker with a clear overview of your total portfolio balance and profit/loss since your very first venture into the cryptoverse or in the last 24 hours. See the trend of your coins through an intuitive portfolio graph, displayed in BTC, ETH, or any fiat or crypto of your choice.</p>
-                    </div>
-                    <div className="efeature">
-                        <div className="eicon">🔗</div>
-                        <h2>Connect with crypto wallets and exchanges</h2>
-                        <p>Connect your portfolio with your favorite wallets and exchanges. We automatically track transactions and gas fees so you get a fast, easy, and straightforward overview of your portfolio.</p>
-                    </div>
-                    <div className="efeature">
-                        <div className="eicon">🔔</div>
-                        <h2>Personalize your notifications</h2>
-                        <p>Never miss out on the next bull run or stablecoin collapse. Delta also comes with pre-personalized notifications based on your app behavior.</p>
-                    </div>
-                </section>
+                   
+                    <div className="eicon">🪙</div>
+                    <h2>Your Comprehensive Crypto Portfolio Manager</h2><br></br>
+                    <p> Visualize coin trends through an intuitive portfolio graph, customizable in BTC, ETH, or any fiat or cryptocurrency.</p>
+                </div>
+                                    <div className="efeature">
+                    <div className="eicon">🔗</div>
+                    <h2>Comprehensive Market Analysis</h2>
+                    <br></br>
+                    <p>Get detailed insights into market trends and cryptocurrency performance. Stay updated with real-time data and charts to make informed investment decisions.</p>
+                </div>
 
+                <div className="efeature">
+                    <div className="eicon">🔔</div>
+                    <h2>News and Sentiment Analysis</h2><br></br>
+                    <p>Stay ahead with top crypto news and sentiment analysis. Understand how news impacts prices with our curated articles and sentiment indicators (positive, negative, neutral).</p>
+                </div>
+
+                </section>
+<br></br>
+<br></br>
                 <section className="emarket-overview">
                     <div className="eoverview-image">
                         {selectedFeature === 'watchlist' && <img src={watchlist} alt="Watchlist" />}
@@ -68,25 +79,28 @@ function Exchanges() {
                         {selectedFeature === 'news' && <img src={news} alt="News" />}
                     </div>
                     <div className="emarket-features">
-                        <div className={`emarket-feature ${selectedFeature === 'watchlist' ? 'open' : ''}`} onClick={() => handleFeatureClick('watchlist')}>
-                            <h2>Market overview & watchlist</h2>
-                            {selectedFeature === 'watchlist' && (
-                                <p>Check current prices, team info, communications, the latest trend charts, your holdings, and profit/loss for all of your coins. Or add coins to your watchlist to keep track of specific cryptocurrencies.</p>
-                            )}
-                        </div>
-                        <div className={`emarket-feature ${selectedFeature === 'library' ? 'open' : ''}`} onClick={() => handleFeatureClick('library')}>
-                            <h2>Huge library of crypto coins</h2>
-                            {selectedFeature === 'library' && (
-                                <p>Display detailed information about the huge library of crypto coins available in the app.</p>
-                            )}
-                        </div>
-                        <div className={`emarket-feature ${selectedFeature === 'news' ? 'open' : ''}`} onClick={() => handleFeatureClick('news')}>
-                            <h2>Detailed crypto trading analysis</h2>
-                            {selectedFeature === 'news' && (
-                                <p>Provide in-depth analysis tools and insights for crypto trading strategies.</p>
-                            )}
-                        </div>
-                    </div>
+                    <div className={`emarket-feature ${selectedFeature === 'watchlist' ? 'open' : ''}`} onClick={() => handleFeatureClick('watchlist')}>
+                                <h2>Comprehensive Market Overview & Watchlist</h2>
+                                {selectedFeature === 'watchlist' && (
+                                    <p>Monitor real-time prices, team information, communications, latest trend charts, track your holdings, and analyze profit/loss for all your coins. Easily manage and add coins to your watchlist for detailed monitoring.</p>
+                                )}
+                            </div>
+
+                            <div className={`emarket-feature ${selectedFeature === 'library' ? 'open' : ''}`} onClick={() => handleFeatureClick('library')}>
+                                <h2>Extensive Crypto Coin Library</h2>
+                                {selectedFeature === 'library' && (
+                                    <p>Explore an extensive library of cryptocurrencies available within the app. Access detailed information and histories of various coins to make informed investment decisions.</p>
+                                )}
+                            </div>
+
+                            <div className={`emarket-feature ${selectedFeature === 'news' ? 'open' : ''}`} onClick={() => handleFeatureClick('news')}>
+                                <h2>Crypto News & Analysis</h2>
+                                {selectedFeature === 'news' && (
+                                    <p>Stay informed with curated analysis of the latest crypto news and trends. Understand how news events influence cryptocurrency markets and refine your trading strategies accordingly.</p>
+                                )}
+                            </div>
+                            </div>
+
                 </section>
             </div>
             <Footer />

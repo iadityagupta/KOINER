@@ -48,8 +48,9 @@ const Coins = () => {
           <Header />
           <div className="mains-content">
             <div className="headings-container">
-              <h1>Track Your Coins</h1>
-              <p>Stay updated with the latest prices and charts of your favorite cryptocurrencies.</p>
+              <h1>Track your favourite Koins</h1>
+              <p>Stay informed and up-to-date with the latest prices, trends, and comprehensive historical charts of your favorite cryptocurrencies.<br></br> Monitor real-time market movements, analyze price trends over different timeframes, and gain valuable insights into the performance of your investments.</p>
+
             </div>
             <div className="searchs-bar">
               <input

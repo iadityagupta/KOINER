@@ -27,15 +27,32 @@ i {
 
 .news-heading {
   text-align: center;
-  font-size: 2rem;
+  font-size: 3rem;
   margin: 2rem 0;
-  color: #8917db;
+  background-image: linear-gradient(to right, #d000ff, #ff18cd);
+    -webkit-text-fill-color: transparent;
+    
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.news-description{
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 4rem;
+  background-image: linear-gradient(to right, #ffa50a, #f069e1);
+    -webkit-text-fill-color: transparent;
+    
+    -webkit-background-clip: text;
+    background-clip: text;
+
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  background-color: #21052b;
+  background: rgb(2,0,36);
+background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(67,5,89,1) 73%, rgba(50,5,78,1) 89%);
   border-radius: 1.35rem;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;

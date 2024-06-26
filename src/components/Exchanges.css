@@ -11,14 +11,32 @@ body {
     color: white;
 }
 
-/* General app styles */
+.upper {
+    font-size: 2em; /* Equivalent to h1 size */
+    font-weight: bold; /* Equivalent to h1 weight */
+}
+
+.highlight {
+    background-image: linear-gradient(to right, #9a7dee, #eda4ff);
+    -webkit-text-fill-color: transparent;
+    
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+
+
+
+
+
+
+
 .eapp {
     text-align: center;
     color: white;
     background: #000000;
     font-family: Arial, sans-serif;
 }
-
 /* Main content section */
 .emain-content {
     display: flex;
@@ -34,13 +52,14 @@ body {
 
 .etext-section h1 {
     font-size: 48px;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
+    margin-left: 15px;
 }
 
 .etext-section p {
     font-size: 18px;
     line-height: 1.6;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 /* Buttons styles */
@@ -49,6 +68,8 @@ body {
     justify-content: center;
     margin-top: 20px;
 }
+
+
 
 .etrack-button, .elearn-button {
     padding: 15px 30px;
@@ -59,9 +80,14 @@ body {
 }
 
 .etrack-button {
-    background-color: #655dfe;
+    background-color: #4c0066;
     color: white;
     margin-right: 20px;
+}
+
+.etrack-button:hover{
+    color: #eda4ff;
+    background-color: #5d0481;
 }
 
 .elearn-button {
@@ -80,24 +106,97 @@ body {
 }
 
 /* Features section styles */
+
 .efeatures {
     display: flex;
     justify-content: space-around;
     padding: 50px;
+    gap: 20px;
+    background: #000000; /* Slightly lighter background for better contrast */
+    border-radius: 100px;
 }
 
 .efeature {
-    background: #24244b;
-    padding: 20px;
-    border-radius: 10px;
-    width: 30%;
+    position: relative; /* Necessary for the pull up effect */
+    background-color: transparent;
+    background-image: linear-gradient(325deg, rgba(53, 20, 161, 0.04), rgba(91, 8, 139, 0.232));
+    padding: 30px;
+    border-radius: 15px;
+    width: 28%;
     text-align: center;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(44, 4, 63, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden; /* Hide content overflow */
+}
+.headingef{
+    justify-content: center;
+    display: block;
+    
+}
+
+.efeature::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31, 2, 35, 0.7); /* Dark overlay */
+    transition: transform 1s;
+    transform: translateY(0); /* Initially visible */
+}
+
+.efeature:hover::before {
+    transform: translateY(100%); /* Pull down overlay on hover */
+}
+
+.efeature .content {
+    position: relative; /* Necessary for proper positioning */
+    opacity: 1; /* Keep content visible */
+    transform: translateY(0); /* Default position */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.efeature:hover .content {
+    transform: translateY(20px); /* Move content down on hover */
 }
 
 .efeature .icon {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #ffd700;
 }
+
+.efeature .title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.efeature .description {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Optional: Add some animation to the icons */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.efeature .icon:hover {
+    animation: bounce 1s;
+}
+
+
 
 /* Market overview section styles */
 .emarket-overview {
@@ -108,8 +207,8 @@ body {
 }
 
 .eoverview-image {
-    width: 50%; /* Set fixed width for the image container */
-    min-width: 300px; /* Set minimum width to prevent contraction */
+    width: 55%; /* Set fixed width for the image container */
+    min-width: 320px; /* Set minimum width to prevent contraction */
     text-align: center;
 }
 
@@ -126,17 +225,38 @@ body {
 }
 
 .emarket-feature {
-    background: #24244b;
+    background-color: transparent;
+    background-image: linear-gradient(325deg, rgb(20, 2, 23), rgba(80, 4, 95, 0.499));
     padding: 20px;
     border-radius: 20px;
     margin-bottom: 40px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Transition for transform and box-shadow */
 }
 
-.emarket-feature.open {
-    background-color: #655dfe; /* Change background color when feature is open */
+.emarket-feature.active {
+    transform: scale(1.1); /* Linear expansion */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Example: Shadow effect */
 }
+
+
+
+.emarket-feature.active {
+    transform: scale(1.1); /* Example: Expand scale */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Example: Shadow effect */
+}
+
+
+.emarket-feature.open {
+    background-color: transparent;
+    background-image: linear-gradient(325deg, rgba(221, 83, 255, .32), rgba(126, 90, 247, .22));
+}
+
+.emarket-feature:hover{
+    transform: scale(1.03); /* Slightly enlarge on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.737); /* More pronounced shadow on hover */
+}
+
 
 .emarket-feature h2 {
     font-size: 24px;
@@ -163,6 +283,7 @@ body {
     justify-content: space-between;
     margin: 10px 0;
 }
+
 
 
 

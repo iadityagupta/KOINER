@@ -15,7 +15,7 @@ const Header = () => {
       <header id="header">
         <Link to="/" className="logo-link">
           <div className="logo">
-            <h1>Koiner</h1>
+            <h1>Koinly</h1>
             <FaEthereum color="orange" size={40} />
           </div>
         </Link>

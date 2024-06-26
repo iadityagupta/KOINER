@@ -64,7 +64,11 @@ const News = () => {
     <>
       <Header />
       <main>
-        <h1 className="news-heading">Latest News</h1>
+      <h1 className="news-heading">Latest News</h1>
+        <p className="news-description">
+            Stay informed with the latest news that is likely to impact the market. <br></br>Explore our sentiment analysis to understand the potential effects on cryptocurrency prices.
+        </p>
+
         <div className="container">
           {news.length > 0 ? (
             news.map((article, index) => (
