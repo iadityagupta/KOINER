@@ -28,3 +28,9 @@ Development:
 The code for this project is located in the src directory. Feel free to explore and contribute!
 
 Note: This README will be further updated with specific instructions on API integration and optional features like watchlists.
+
+
+
+
+![Demo Image](Demo.png)
+
