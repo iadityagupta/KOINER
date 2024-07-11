@@ -2,6 +2,10 @@
  
  ## Stay on top of the ever-changing crypto market with this intuitive tracker!
 
+
+Koinly is deployed on Vercel currently and you can visit it from here: [KOINLY](https://koiner-1jcs-kxpsu1qsr-iadityaguptas-projects.vercel.app/)
+
+
 ### Features:
 
 **Real-time Price Tracking**: See the latest prices for a broad range of cryptocurrencies.
@@ -24,3 +28,9 @@ Development:
 The code for this project is located in the src directory. Feel free to explore and contribute!
 
 Note: This README will be further updated with specific instructions on API integration and optional features like watchlists.
+
+
+
+
+![Demo Image](Demo.png)
+
