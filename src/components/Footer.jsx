@@ -6,7 +6,7 @@ import './Footer.css';
 
 const Footer = () => {
   const faqs = [
-    { id: 1, question: 'What does Koinly do?', answer: 'Koiner offers real-time updates on cryptocurrency prices, market analysis, and news with sentiment analysis.' },
+    { id: 1, question: 'What does Koinly do?', answer: 'Koinly offers real-time updates on cryptocurrency prices, market analysis, and news with sentiment analysis.' },
     { id: 2, question: 'How often is the cryptocurrency data updated?', answer: 'The data is updated in real-time every few minutes.' },
     { id: 3, question: 'Where can I find news and their sentiment analysis?', answer: 'You can find the latest news and their sentiment analysis in our News section ' },
   ];
