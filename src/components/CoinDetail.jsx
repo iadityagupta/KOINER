@@ -9,6 +9,7 @@ import { IoPulseOutline } from 'react-icons/io5';
 import CoinChart from './CoinChart';
 import Footer from './Footer';
 import Header from './Header';
+import ScrollToTop from './ScrollToTop';
 
 const CoinDetails = () => {
   const [coin, setCoin] = useState({});
@@ -37,7 +38,9 @@ const CoinDetails = () => {
     }
 
     return (
+      
       <div className="main-content">
+        <ScrollToTop />
         <Header />
         <div className="coin-buttons">
                 <button className={`currency-button ${currency === 'inr' ? 'active' : ''}`} onClick={() => setCurrency('inr')}>INR</button>
