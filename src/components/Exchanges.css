@@ -19,17 +19,9 @@ body {
 .highlight {
     background-image: linear-gradient(to right, #9a7dee, #eda4ff);
     -webkit-text-fill-color: transparent;
-    
     -webkit-background-clip: text;
     background-clip: text;
 }
-
-
-
-
-
-
-
 
 .eapp {
     text-align: center;
@@ -37,7 +29,7 @@ body {
     background: #000000;
     font-family: Arial, sans-serif;
 }
-/* Main content section */
+
 .emain-content {
     display: flex;
     justify-content: space-between;
@@ -45,7 +37,6 @@ body {
     padding: 45px;
 }
 
-/* Text section styles */
 .etext-section {
     max-width: 800px;
 }
@@ -62,14 +53,11 @@ body {
     margin-bottom: 50px;
 }
 
-/* Buttons styles */
 .ebuttons {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
-
-
 
 .etrack-button, .elearn-button {
     padding: 15px 30px;
@@ -85,7 +73,7 @@ body {
     margin-right: 20px;
 }
 
-.etrack-button:hover{
+.etrack-button:hover {
     color: #eda4ff;
     background-color: #5d0481;
 }
@@ -96,7 +84,6 @@ body {
     border: 1px solid white;
 }
 
-/* Image section styles */
 .eimage-section img {
     max-width: 100%;
     height: auto;
@@ -105,47 +92,41 @@ body {
     margin: 0 auto;
 }
 
-/* Features section styles */
-
 .efeatures {
     display: flex;
     justify-content: space-around;
     padding: 50px;
     gap: 20px;
-    
 }
 
 .efeature {
-    position: relative; /* Necessary for the pull up effect */
+    position: relative;
     background-color: transparent;
-    background-image: linear-gradient(325deg, rgba(53, 20, 161, 0.04), rgba(91, 8, 139, 0.232));
+    background-image: linear-gradient(325deg, rgb(34, 0, 67), rgba(64, 4, 117, 0.499));
     padding: 30px;
     border-radius: 15px;
     width: 28%;
     text-align: center;
     color: #ffffff;
-    box-shadow: 0 4px 8px rgba(44, 4, 63, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
-    overflow: hidden; /* Hide content overflow */
-}
-.headingef{
-    justify-content: center;
-    display: block;
-    
+    box-shadow: 0 4px 8px rgba(38, 0, 55, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    height: 250px; /* Set a fixed height for the card */
+    overflow: hidden; /* Hide overflow content */
 }
 
-.excont{
-    
+.headingef {
+    justify-content: center;
+    display: block;
+}
+
+.excont {
     margin-top: 100px;
-   
     border-top-left-radius: 70px;
     border-top-right-radius: 70px;
     background-image: linear-gradient(to bottom, rgba(10, 10, 11, 0) 68%, #000000), radial-gradient(circle farthest-corner at 50% 170%, rgba(221, 83, 255, 0) 21%, rgba(143, 46, 228, 0.5) 65%, #350268 89%, #000000);
-    
 }
 
-
-.eswipe{
+.eswipe {
     text-align: center;
     margin-top: 3rem;
     display: inline-block;
@@ -154,34 +135,23 @@ body {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.efeature::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(30, 1, 56, 0.7); /* Dark overlay */
-    transition: transform 1s;
-    transform: translateY(0); /* Initially visible */
+/* Paragraph with low opacity by default */
+.efeature p {
+    opacity: 0.2;
+    transition: opacity 0.3s; /* Smooth transition */
 }
 
-.efeature:hover::before {
-    transform: translateY(-100%);
-    
+/* Increase opacity on hover */
+.efeature:hover p {
+    opacity: 1;
 }
 
-.efeature .content {
-    position: relative; /* Necessary for proper positioning */
-    opacity: 1; /* Keep content visible */
-    transform: translateY(0); /* Default position */
-    transition: transform 0.3s ease-in-out; /* Smooth transition */
+/* Change background color on hover */
+.efeature:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the color as needed */
 }
 
-.efeature:hover .content {
-    transform: translateY(20px); /* Move content down on hover */
-}
-
+/* Styles for the icons, titles, and descriptions */
 .efeature .icon {
     font-size: 3rem;
     margin-bottom: 15px;
@@ -199,36 +169,17 @@ body {
     line-height: 1.5;
 }
 
-/* Optional: Add some animation to the icons */
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-10px);
-    }
-    60% {
-        transform: translateY(-5px);
-    }
-}
-
-.efeature .icon:hover {
-    animation: bounce 1s;
-}
-
-
-
 /* Market overview section styles */
 .emarket-overview {
     display: flex;
     justify-content: space-around;
-    align-items: flex-start; /* Adjust alignment */
+    align-items: flex-start;
     padding: 50px;
 }
 
 .eoverview-image {
-    width: 55%; /* Set fixed width for the image container */
-    min-width: 320px; /* Set minimum width to prevent contraction */
+    width: 55%;
+    min-width: 320px;
     text-align: center;
 }
 
@@ -236,8 +187,8 @@ body {
     max-width: 60%;
     height: auto;
     border-radius: 20px;
-    display: inline-block; /* Use inline-block to respect width and height */
-    vertical-align: top; /* Align images to the top */
+    display: inline-block;
+    vertical-align: top;
 }
 
 .emarket-features {
@@ -251,32 +202,23 @@ body {
     border-radius: 20px;
     margin-bottom: 40px;
     cursor: pointer;
-    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Transition for transform and box-shadow */
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .emarket-feature.active {
-    transform: scale(1.1); /* Linear expansion */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Example: Shadow effect */
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
-
-
-
-.emarket-feature.active {
-    transform: scale(1.1); /* Example: Expand scale */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Example: Shadow effect */
-}
-
 
 .emarket-feature.open {
     background-color: transparent;
     background-image: linear-gradient(325deg, rgba(221, 83, 255, .32), rgba(126, 90, 247, .22));
 }
 
-.emarket-feature:hover{
-    transform: scale(1.03); /* Slightly enlarge on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.737); /* More pronounced shadow on hover */
+.emarket-feature:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.737);
 }
-
 
 .emarket-feature h2 {
     font-size: 24px;
@@ -288,7 +230,6 @@ body {
     line-height: 1.5;
 }
 
-/* Portfolio info styles */
 .eportfolio-info h3 {
     margin: 0;
     color: #f39c12;
@@ -304,10 +245,6 @@ body {
     margin: 10px 0;
 }
 
-
-
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .emain-content {
         flex-direction: column;
@@ -335,7 +272,7 @@ body {
 
     .eoverview-image {
         width: 70%;
-        min-width: auto; /* Reset minimum width */
+        min-width: auto;
         text-align: center;
     }
 

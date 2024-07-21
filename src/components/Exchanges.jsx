@@ -45,7 +45,7 @@ function Exchanges() {
                         </div>
                     </div>
                     <div className="eimage-section">
-                        <img src={cryptoImage} alt="Crypto Tracker" />
+                        <img src={cryptoImage} alt="Krypto Tracker" />
                     </div>
                 </main>
                 <div className='excont'>
