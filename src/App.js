@@ -18,7 +18,8 @@ function App() {
       
     </Routes>
    
-    </div>
+   
+  </div>
     
   );
 }
