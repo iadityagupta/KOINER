@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Loader from './Loader';
-import Header from './Header';
-import { Baseurl } from './Baseurl'; // Ensure Baseurl points to your proxy endpoint (/api)
+import Loader from '../components/Loader';
+import Header from '../components/Header';
+import { Baseurl } from '../variables/Baseurl'; // Ensure Baseurl points to your proxy endpoint (/api)
 import './News.css';
-import Footer from './Footer';
+import Footer from '../components/Footer';
 import Sentiment from 'sentiment'; // Import sentiment package
 
 const News = () => {

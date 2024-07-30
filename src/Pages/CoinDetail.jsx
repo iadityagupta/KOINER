@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Baseurl } from './Baseurl';
-import Loader from './Loader';
+import { Baseurl } from '../variables/Baseurl';
+import Loader from '../components/Loader';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import './CoinDetail.css'; // Import the CSS file
 import { BiSolidUpArrow, BiSolidDownArrow } from 'react-icons/bi';
 import { IoPulseOutline } from 'react-icons/io5';
-import CoinChart from './CoinChart';
-import Footer from './Footer';
-import Header from './Header';
-import ScrollToTop from './ScrollToTop';
+import CoinChart from '../components/CoinChart';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import ScrollToTop from '../components/ScrollToTop';
 
 const CoinDetails = () => {
   const [coin, setCoin] = useState({});

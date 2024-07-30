@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Baseurl } from './Baseurl';
-import Loader from './Loader';
-import Header from './Header';
-import Footer from './Footer';
+import { Baseurl } from '../variables/Baseurl';
+import Loader from '../components/Loader';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 import './Coins.css';
 

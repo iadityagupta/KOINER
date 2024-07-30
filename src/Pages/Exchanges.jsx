@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './Exchanges.css';
-import Header from './Header';
-import Footer from './Footer';
-import cryptoImage from '../hero-crypto.png';
-import watchlist from '../watchlist.png';
-import library from '../library.png';
-import news from '../news.png';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import cryptoImage from '../Images/hero-crypto.png'
+import watchlist from '../Images/watchlist.png';
+import library from '../Images/library.png';
+import news from '../Images/news.png';
 import { useNavigate } from 'react-router-dom';
 
 function Exchanges() {

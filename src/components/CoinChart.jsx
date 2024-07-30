@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Baseurl } from './Baseurl';
+import { Baseurl } from '../variables/Baseurl';
 import { useParams } from 'react-router-dom';
 import Footer from './Footer';
 import {
