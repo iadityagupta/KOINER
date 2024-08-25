@@ -47,7 +47,7 @@ body {
   background: var(--menu-bg);
   height: 100%;
   left: 0;
-  right: 300rem;
+  right: 0rem;
   opacity: 0;
   overflow: hidden;
   position: fixed;
@@ -152,7 +152,8 @@ body {
   border: none;
   cursor: pointer;
   display: inline-block;
-  right: 8rem;
+  right: 3rem;
+  top: 2.7rem;
   height: var(--hamburger-height);
   outline: none;
   padding: 0;
@@ -232,3 +233,5 @@ body {
     right: 0;
   }
 }
+
+

@@ -5,7 +5,6 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import './CoinDetail.css'; // Import the CSS file
 import { BiSolidUpArrow, BiSolidDownArrow } from 'react-icons/bi';
-import { IoPulseOutline } from 'react-icons/io5';
 import CoinChart from '../components/CoinChart';
 import Footer from '../components/Footer';
 import Header from '../components/Header';

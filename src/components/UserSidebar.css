@@ -1,0 +1,162 @@
+/* User Sidebar Styling */
+.user-sidebar {
+  position: relative;
+  z-index: 1200; /* Ensure it's above the drawer */
+}
+
+/* Avatar Styling */
+.avatar {
+  height: 50px;
+  width: 50px;
+  margin-left: 35px;
+  margin-right: 55px;
+  cursor: pointer;
+  background-color: #eebc1d;
+  border-radius: 50%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Overlay for Drawer */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999; /* Ensure overlay is above everything except drawer */
+  transition: opacity 0.3s ease;
+}
+
+/* Drawer Styling */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -350px; /* Initially hidden */
+  width: 360px;
+  height: 100%;
+  background-color: #ffc9c9;
+  padding: 25px;
+  box-shadow: -3px 0 6px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* Ensure drawer is above overlay */
+  transition: right 0.3s ease;
+}
+
+.drawer.open {
+  right: 0; /* Display drawer when open */
+}
+
+/* Sidebar Container Styling */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  overflow-y: hidden; /* Prevent scrolling on the entire sidebar */
+}
+
+/* Profile Section */
+.profile {
+  flex-shrink: 0; /* Ensure the profile section doesn't shrink */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px; /* Add padding below profile section */
+}
+
+/* Profile Picture */
+.picture {
+  width: 150px;
+  height: 150px;
+  background-color: #eebc1d;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* User Name */
+.user-name {
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Watchlist Styling */
+.watchlist {
+  flex: 1;
+  width: 100%; /* Change from 106% to 100% */
+  background-color: #24062b;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  overflow-y: auto; /* Enable scrolling within the watchlist if necessary */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: calc(100vh - 300px); /* Ensure the watchlist section doesn't exceed the viewport height */
+}
+
+/* Watchlist Title */
+.watchlist-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #edeaea;
+  margin-bottom: 10px;
+}
+
+/* Coin Item Styling */
+.coin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px; /* Reduced padding for better fit */
+  width: 100%; /* Ensure the coin items take the full width of the container */
+  background-color: #5a1f84;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.coin:hover {
+  transform: scale(1.05);
+}
+
+/* Coin Details Section */
+.coin-details {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Delete Icon Styling */
+.delete-icon {
+  cursor: pointer;
+  color: #ff6666;
+}
+
+/* Logout Button Styling */
+.logout-button {
+  background-color: #eebc1d;
+  border: none;
+  padding: 12px 20px;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: auto; /* Push the button to the bottom */
+  align-self: center;
+  transition: background-color 0.2s ease;
+}
+
+.logout-button:hover {
+  background-color: #dba81d;
+}

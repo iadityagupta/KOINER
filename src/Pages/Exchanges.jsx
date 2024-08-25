@@ -40,7 +40,7 @@ function Exchanges() {
 
                         <div className="ebuttons">
                             <button className="etrack-button" onClick={handleTrackButtonClick}>Track the Koins</button>
-                            <button className="elearn-button" onclick="href='https://www.investopedia.com/terms/c/cryptocurrency.asp'">Learn more</button>
+                            
 
                         </div>
                     </div>

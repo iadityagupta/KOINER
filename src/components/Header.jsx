@@ -2,9 +2,14 @@ import React, { useState } from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
 import { FaEthereum } from 'react-icons/fa';
+import Authmodal from './Authmodal';
+import UserSidebar from './UserSidebar';
+import { CryptoState } from './CryptoContext';
+
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const {user} = CryptoState();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -25,8 +30,9 @@ const Header = () => {
             <span></span>
             <span></span>
           </button>
-          
+          {user ? <UserSidebar /> : <Authmodal />}
         </nav>
+       
       </header>
 
       <div id="menu" className={menuOpen ? 'open' : ''}>
@@ -41,6 +47,9 @@ const Header = () => {
             <li>
               <Link to="/news" onClick={toggleMenu}>News</Link>
             </li>
+            {/* <li>
+              <Link to="/Wishlist" onClick={toggleMenu}>Wishlist</Link>
+            </li> */}
           </ul>
         </nav>
 
@@ -69,6 +78,7 @@ const Header = () => {
           </nav>
         </footer>
       </div>
+    
     </>
   );
 };
