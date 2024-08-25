@@ -1,6 +1,6 @@
 # KOINER: Cruptocurrency Screener app
  
- ## Stay on top of the ever-changing crypto market with this intuitive tracker!
+ ## Stay on top of the ever-changing crypto market with this intuitive tracker! It is a full stack cryptocurrency tracker.
 
 
 Koinly is deployed on Vercel currently and you can visit it from here: [KOINLY](https://koiner-1jcs-kxpsu1qsr-iadityaguptas-projects.vercel.app/)
@@ -14,7 +14,7 @@ Koinly is deployed on Vercel currently and you can visit it from here: [KOINLY](
 
 **News**: Get the latest cyrptocurrency news on one click. Also you can look at the sentiment of the headline if it is positive, nagative or neutral. 
 
-**Customization (Optional)**: Tailor your experience by creating watchlists to focus on the coins that matter most to you. (Working on it, will add soon)
+**Customization**: Tailor your experience by creating watchlists to focus on the coins that matter most to you. (Backend)
 
 
 
