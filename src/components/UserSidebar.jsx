@@ -73,42 +73,39 @@ const UserSidebar = () => {
         <>
           <div className="overlay" onClick={toggleDrawer(false)}></div>
           <div className="drawer open">
-            
-              <div className="profile">
-                <img
-                  className="picture"
-                  src={user.photoURL || defaultUserImage}
-                  alt={user.displayName || user.email}
-                />
-                <span className="user-name">
-                  {user.displayName || user.email}
-                </span>
-                <div className="watchlist">
-                  <span className="watchlist-title">Watchlist</span>
-                  {coins.map((coin) => {
-                    if (watchlist.includes(coin.id))
-                      return (
-                        <div className="coin" key={coin.id}>
-                          <span>{coin.name}</span>
-                          <span className="coin-details">
-                            {symbol}{" "}
-                            {numberWithCommas(coin.current_price.toFixed(2))}
-                            <AiFillDelete
-                              className="delete-icon"
-                              onClick={() => removeFromWatchlist(coin)}
-                            />
-                          </span>
-                        </div>
-                      );
-                    return null;
-                  })}
-                </div>
-              
+            <div className="profile">
+              <img
+                className="picture"
+                src={user.photoURL || defaultUserImage}
+                alt={user.displayName || user.email}
+              />
+              <span className="user-name">
+                {user.displayName || user.email}
+              </span>
+              <div className="watchlist">
+                <span className="watchlist-title">Watchlist</span>
+                {(coins || []).map((coin) => {
+                  if (watchlist.includes(coin.id))
+                    return (
+                      <div className="coin" key={coin.id}>
+                        <span>{coin.name}</span>
+                        <span className="coin-details">
+                          {symbol}{" "}
+                          {numberWithCommas(coin.current_price.toFixed(2))}
+                          <AiFillDelete
+                            className="delete-icon"
+                            onClick={() => removeFromWatchlist(coin)}
+                          />
+                        </span>
+                      </div>
+                    );
+                  return null;
+                })}
+              </div>
               <button className="logout-button" onClick={logOut}>
                 Log Out
               </button>
-              </div>
-            
+            </div>
           </div>
         </>
       )}
