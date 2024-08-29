@@ -23,7 +23,7 @@ const CryptoContext = ({ children }) => {
   useEffect(() => {
     if (user) {
       const coinRef = doc(db, "watchlist", user?.uid);
-      var unsubscribe = onSnapshot(coinRef, (coin) => {
+      const unsubscribe = onSnapshot(coinRef, (coin) => {
         if (coin.exists()) {
           console.log(coin.data().coins);
           setWatchlist(coin.data().coins);
@@ -47,10 +47,15 @@ const CryptoContext = ({ children }) => {
 
   const fetchCoins = async () => {
     setLoading(true);
-    const { data } = await axios.get(CoinList(currency));
-
-    setCoins(data);
-    setLoading(false);
+    try {
+      const { data } = await axios.get(CoinList(currency));
+      setCoins(Array.isArray(data) ? data : []); // Ensure coins is always an array
+    } catch (error) {
+      console.error("Failed to fetch coin data:", error);
+      setCoins([]); // Set an empty array if fetching fails
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -79,8 +84,6 @@ const CryptoContext = ({ children }) => {
     </Crypto.Provider>
   );
 };
-
-
 
 export const CryptoState = () => {
   return useContext(Crypto);

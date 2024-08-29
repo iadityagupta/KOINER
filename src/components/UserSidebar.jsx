@@ -15,7 +15,7 @@ const UserSidebar = () => {
     sidebarOpen: false,
   });
 
-  const { user, setAlert, watchlist, coins = [], symbol } = CryptoState(); // Ensure coins is always an array
+  const { user, setAlert, watchlist = [], coins = [], symbol } = CryptoState(); // Ensure watchlist and coins are arrays
 
   const toggleDrawer = (open) => () => {
     setState({ right: open, sidebarOpen: open });
