@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, useCallback } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "./firebase";
 import axios from "axios";
@@ -19,52 +19,61 @@ const CryptoContext = ({ children }) => {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
   const [watchlist, setWatchlist] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (user) {
-      const coinRef = doc(db, "watchlist", user?.uid);
-      const unsubscribe = onSnapshot(coinRef, (coin) => {
-        if (coin.exists()) {
-          console.log(coin.data().coins);
-          setWatchlist(coin.data().coins);
-        } else {
-          console.log("No Items in Watchlist");
-        }
-      });
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+        const coinRef = doc(db, "watchlist", user.uid);
+        const watchlistUnsubscribe = onSnapshot(coinRef, 
+          (coin) => {
+            if (coin.exists()) {
+              console.log("Watchlist data:", coin.data().coins);
+              setWatchlist(coin.data().coins);
+            } else {
+              console.log("No Items in Watchlist");
+              setWatchlist([]);
+            }
+          },
+          (error) => {
+            console.error("Error fetching watchlist:", error);
+            setError(error.message);
+          }
+        );
 
-      return () => {
-        unsubscribe();
-      };
-    }
-  }, [user]);
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) setUser(user);
-      else setUser(null);
+        return () => watchlistUnsubscribe();
+      } else {
+        setUser(null);
+        setWatchlist([]);
+      }
     });
+
+    return () => unsubscribe();
   }, []);
 
-  const fetchCoins = async () => {
+  const fetchCoins = useCallback(async () => {
     setLoading(true);
+    setError(null);
     try {
       const { data } = await axios.get(CoinList(currency));
-      setCoins(Array.isArray(data) ? data : []); // Ensure coins is always an array
+      console.log("Fetched coin data:", data);
+      setCoins(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error("Failed to fetch coin data:", error);
-      setCoins([]); // Set an empty array if fetching fails
+      setError("Failed to fetch coin data. Please try again later.");
+      setCoins([]);
     } finally {
       setLoading(false);
     }
-  };
+  }, [currency]);  // fetchCoins now depends on `currency`
 
   useEffect(() => {
     if (currency === "INR") setSymbol("₹");
     else if (currency === "USD") setSymbol("$");
 
     fetchCoins();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currency]);
+  }, [currency, fetchCoins]);  // include fetchCoins in the dependency array
 
   return (
     <Crypto.Provider
@@ -78,6 +87,7 @@ const CryptoContext = ({ children }) => {
         coins,
         loading,
         watchlist,
+        error,
       }}
     >
       {children}

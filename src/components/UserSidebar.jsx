@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CryptoState } from "./CryptoContext";
 import { signOut } from "firebase/auth";
 import { auth, db } from "./firebase";
@@ -15,16 +15,19 @@ const UserSidebar = () => {
     sidebarOpen: false,
   });
 
-  const { user, setAlert, watchlist = [], coins = [], symbol } = CryptoState(); // Ensure watchlist and coins are arrays
+  const { user, setAlert, watchlist, coins, symbol, loading, error } = CryptoState();
+
+  useEffect(() => {
+    console.log("Watchlist in UserSidebar:", watchlist);
+    console.log("Coins in UserSidebar:", coins);
+  }, [watchlist, coins]);
 
   const toggleDrawer = (open) => () => {
     setState({ right: open, sidebarOpen: open });
     
     if (!open) {
-      // Reset to show hamburger menu if sidebar is closed
       document.querySelector('#menu').style.display = 'block';
     } else {
-      // Hide hamburger menu when sidebar is open
       document.querySelector('#menu').style.display = 'none';
     }
   };
@@ -61,13 +64,16 @@ const UserSidebar = () => {
     }
   };
 
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
   return (
     <div className="user-sidebar">
       <img
         onClick={toggleDrawer(true)}
         className="avatar"
-        src={user.photoURL || defaultUserImage}
-        alt={user.displayName || user.email || "user"}
+        src={user?.photoURL || defaultUserImage}
+        alt={user?.displayName || user?.email || "user"}
       />
       {state.right && (
         <>
@@ -76,31 +82,31 @@ const UserSidebar = () => {
             <div className="profile">
               <img
                 className="picture"
-                src={user.photoURL || defaultUserImage}
-                alt={user.displayName || user.email}
+                src={user?.photoURL || defaultUserImage}
+                alt={user?.displayName || user?.email}
               />
               <span className="user-name">
-                {user.displayName || user.email}
+                {user?.displayName || user?.email}
               </span>
               <div className="watchlist">
                 <span className="watchlist-title">Watchlist</span>
-                {Array.isArray(coins) && coins.map((coin) => {
-                  if (watchlist.includes(coin.id))
-                    return (
-                      <div className="coin" key={coin.id}>
-                        <span>{coin.name}</span>
-                        <span className="coin-details">
-                          {symbol}{" "}
-                          {numberWithCommas(coin.current_price.toFixed(2))}
-                          <AiFillDelete
-                            className="delete-icon"
-                            onClick={() => removeFromWatchlist(coin)}
-                          />
-                        </span>
-                      </div>
-                    );
-                  return null;
-                })}
+                {watchlist.length === 0 ? (
+                  <div>No items in watchlist</div>
+                ) : (
+                  coins.filter(coin => watchlist.includes(coin.id)).map((coin) => (
+                    <div className="coin" key={coin.id}>
+                      <span>{coin.name}</span>
+                      <span className="coin-details">
+                        {symbol}{" "}
+                        {numberWithCommas(coin.current_price.toFixed(2))}
+                        <AiFillDelete
+                          className="delete-icon"
+                          onClick={() => removeFromWatchlist(coin)}
+                        />
+                      </span>
+                    </div>
+                  ))
+                )}
               </div>
               <button className="logout-button" onClick={logOut}>
                 Log Out
