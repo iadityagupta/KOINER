@@ -15,7 +15,7 @@ const UserSidebar = () => {
     sidebarOpen: false,
   });
 
-  const { user, setAlert, watchlist, coins, symbol } = CryptoState();
+  const { user, setAlert, watchlist, coins = [], symbol } = CryptoState(); // Ensure coins is always an array
 
   const toggleDrawer = (open) => () => {
     setState({ right: open, sidebarOpen: open });
@@ -84,7 +84,7 @@ const UserSidebar = () => {
               </span>
               <div className="watchlist">
                 <span className="watchlist-title">Watchlist</span>
-                {(coins || []).map((coin) => {
+                {coins.map((coin) => {
                   if (watchlist.includes(coin.id))
                     return (
                       <div className="coin" key={coin.id}>

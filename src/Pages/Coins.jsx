@@ -23,6 +23,7 @@ const Coins = () => {
     message: "",
     type: "success",
   });
+
   const { user, watchlist } = CryptoState();
   const currencySymbol = currency === 'inr' ? '₹' : '$';
 
@@ -132,6 +133,15 @@ const CoinRow = ({ coindata, currencySymbol, setAlert, user, watchlist }) => {
   const inWatchlist = watchlist.includes(coindata?.id);
 
   const toggleWishlist = async () => {
+    if (!user) {
+      setAlert({
+        open: true,
+        message: "Please log in to add or remove coins from your watchlist.",
+        type: "warning",
+      });
+      return;
+    }
+
     setClicked(!clicked);
 
     const coinRef = doc(db, "watchlist", user.uid);
@@ -214,7 +224,6 @@ const Pagination = ({ coinsPerPage, totalCoins, paginate, currentPage }) => {
 };
 
 export default Coins;
-
 
 export function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
