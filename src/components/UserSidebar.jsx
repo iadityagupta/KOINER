@@ -84,7 +84,7 @@ const UserSidebar = () => {
               </span>
               <div className="watchlist">
                 <span className="watchlist-title">Watchlist</span>
-                {coins.map((coin) => {
+                {Array.isArray(coins) && coins.map((coin) => {
                   if (watchlist.includes(coin.id))
                     return (
                       <div className="coin" key={coin.id}>
