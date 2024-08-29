@@ -56,9 +56,16 @@ const CryptoContext = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
+      console.log("Fetching coins for currency:", currency);
       const { data } = await axios.get(CoinList(currency));
       console.log("Fetched coin data:", data);
-      setCoins(Array.isArray(data) ? data : []);
+      if (Array.isArray(data)) {
+        setCoins(data);
+        console.log("Updated coins state:", data);
+      } else {
+        console.error("Fetched data is not an array:", data);
+        setCoins([]);
+      }
     } catch (error) {
       console.error("Failed to fetch coin data:", error);
       setError("Failed to fetch coin data. Please try again later.");
@@ -66,14 +73,14 @@ const CryptoContext = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  }, [currency]);  // fetchCoins now depends on `currency`
+  }, [currency]);
 
   useEffect(() => {
     if (currency === "INR") setSymbol("₹");
     else if (currency === "USD") setSymbol("$");
 
     fetchCoins();
-  }, [currency, fetchCoins]);  // include fetchCoins in the dependency array
+  }, [currency, fetchCoins]);
 
   return (
     <Crypto.Provider
