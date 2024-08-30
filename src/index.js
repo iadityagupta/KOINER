@@ -15,6 +15,6 @@ root.render(
           <App />
         </Router>
       </CryptoContext>
-    
+  
   </React.StrictMode>
 );
