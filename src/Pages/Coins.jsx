@@ -27,18 +27,36 @@ const Coins = () => {
   const { user, watchlist } = CryptoState();
   const currencySymbol = currency === 'inr' ? '₹' : '$';
 
+  const CACHE_DURATION = 60000; // 1 minute
+  let cachedCoins = null;
+  let lastFetchTime = 0;
+
   useEffect(() => {
     const getCoinsData = async () => {
+      const now = Date.now();
+      if (cachedCoins && now - lastFetchTime < CACHE_DURATION) {
+        setCoins(cachedCoins);
+        setLoading(false);
+        return;
+      }
+
       try {
-        const { data } = await axios.get(`${Baseurl}/coins/markets?vs_currency=${currency}`);
-        setCoins(data);
+        console.log(`Fetching data from: ${Baseurl}/coins/markets?vs_currency=${currency}`);
+        const response = await axios.get(`${Baseurl}/coins/markets?vs_currency=${currency}`);
+        console.log("API Response:", response);
+        setCoins(response.data);
+        cachedCoins = response.data;
+        lastFetchTime = now;
         setLoading(false);
       } catch (error) {
-        console.log(error);
+        console.error("Error fetching coin data:", error);
+        if (error.response) {
+          console.error("Error response:", error.response.data);
+        }
         setLoading(false);
         setAlert({
           open: true,
-          message: "Failed to fetch coin data",
+          message: "Failed to fetch coin data: " + (error.response?.data?.error || error.message),
           type: "error",
         });
       }
@@ -46,6 +64,19 @@ const Coins = () => {
 
     getCoinsData();
   }, [currency]);
+
+  useEffect(() => {
+    const handleOnline = () => setAlert({ open: true, message: "Connection restored", type: "success" });
+    const handleOffline = () => setAlert({ open: true, message: "No internet connection", type: "error" });
+
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, []);
 
   const indexOfLastCoin = currentPage * coinsPerPage;
   const indexOfFirstCoin = indexOfLastCoin - coinsPerPage;
@@ -56,7 +87,7 @@ const Coins = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <>
+    <ErrorBoundary>
       {loading ? (
         <Loader />
       ) : (
@@ -123,7 +154,7 @@ const Coins = () => {
           )}
         </>
       )}
-    </>
+    </ErrorBoundary>
   );
 };
 
@@ -222,6 +253,29 @@ const Pagination = ({ coinsPerPage, totalCoins, paginate, currentPage }) => {
     </nav>
   );
 };
+
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error("Uncaught error:", error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <h1>Something went wrong. Please try refreshing the page.</h1>;
+    }
+
+    return this.props.children;
+  }
+}
 
 export default Coins;
 
