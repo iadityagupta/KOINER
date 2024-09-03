@@ -14,7 +14,7 @@ Koinly is deployed on Vercel currently and you can visit it from here: [KOINLY](
 
 **News**: Get the latest cyrptocurrency news on one click. Also you can look at the sentiment of the headline if it is positive, nagative or neutral. 
 
-**Customization**: Tailor your experience by creating watchlists to focus on the coins that matter most to you. (Backend)
+**Customization**: Tailor your experience by creating watchlists to focus on the coins that matter most to you. I have used the backend for my app using Firebase [Still working on it!].
 
 
 
