@@ -29,10 +29,8 @@ const CryptoContext = ({ children }) => {
         const watchlistUnsubscribe = onSnapshot(coinRef, 
           (coin) => {
             if (coin.exists()) {
-              console.log("Watchlist data:", coin.data().coins);
               setWatchlist(coin.data().coins);
             } else {
-              console.log("No Items in Watchlist");
               setWatchlist([]);
             }
           },
@@ -41,7 +39,6 @@ const CryptoContext = ({ children }) => {
             setError(error.message);
           }
         );
-
         return () => watchlistUnsubscribe();
       } else {
         setUser(null);
@@ -56,12 +53,9 @@ const CryptoContext = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
-      console.log("Fetching coins for currency:", currency);
       const { data } = await axios.get(CoinList(currency));
-      console.log("Fetched coin data:", data);
       if (Array.isArray(data)) {
         setCoins(data);
-        console.log("Updated coins state:", data);
       } else {
         console.error("Fetched data is not an array:", data);
         setCoins([]);
@@ -102,8 +96,6 @@ const CryptoContext = ({ children }) => {
   );
 };
 
-export const CryptoState = () => {
-  return useContext(Crypto);
-};
+export const CryptoState = () => useContext(Crypto);
 
 export default CryptoContext;

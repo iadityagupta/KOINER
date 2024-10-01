@@ -19,7 +19,7 @@ const UserSidebar = () => {
 
   useEffect(() => {
     console.log("Watchlist in UserSidebar:", watchlist);
-    console.log("Coins in UserSidebar:", coins);
+    // console.log("Coins in UserSidebar:", coins);
   }, [watchlist, coins]);
 
   const toggleDrawer = (open) => () => {
