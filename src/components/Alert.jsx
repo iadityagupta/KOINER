@@ -12,29 +12,30 @@ const Alert = () => {
       const timer = setTimeout(() => {
         setVisible(false);
         setAlert({ ...alert, open: false });
-      }, 3000); // Auto-hide duration
-      
-      return () => clearTimeout(timer);
+      }, 3000); // Auto-hide after 3 seconds
+
+      return () => clearTimeout(timer); // Cleanup timeout on unmount
     }
   }, [alert, setAlert]);
 
-  const handleCloseAlert = (event) => {
-    if (event && event.type === "clickaway") {
-      return;
-    }
+  const handleCloseAlert = () => {
     setVisible(false);
     setAlert({ ...alert, open: false });
   };
 
   return (
-    visible && (
-      <div className={`alert-container ${alert.type}`} onClick={handleCloseAlert}>
-        <div className="alert-content">
-          {alert.message}
-          <button className="close-btn" onClick={handleCloseAlert}>×</button>
-        </div>
+    <div className={`alert-container ${alert.type} ${visible ? "show" : "hide"}`}>
+      <div className="alert-content">
+        {alert.message}
+        <button 
+          className="close-btn" 
+          onClick={handleCloseAlert} 
+          aria-label="Close Alert"
+        >
+          ×
+        </button>
       </div>
-    )
+    </div>
   );
 };
 
