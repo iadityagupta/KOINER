@@ -20,7 +20,7 @@ Koinly is deployed on Vercel currently and you can visit it from here: [KOINLY](
 
 ### Getting Started:
 
-Clone this Repository: git clone https://github.com/your-username/koiner
+Clone this Repository: git clone https://github.com/aditya453gupta/koinly
 Install Dependencies: npm install (or yarn install)
 Run the Application: npm start (or yarn start) (usually http://localhost:3000)
 Development:
